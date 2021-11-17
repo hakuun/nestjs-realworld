@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { UsersController } from './users/users.controller';
 import { DbModule } from './db/db.module';
 import { UsersModule } from './users/users.module';
+import { AuthService } from './auth/auth.service';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -12,6 +14,7 @@ import { UsersModule } from './users/users.module';
       isGlobal: true,
     }),
     DbModule,
+    AuthModule,
     UsersModule,
   ],
   controllers: [AppController, UsersController],

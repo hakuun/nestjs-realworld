@@ -6,24 +6,8 @@ export type UserDocument = User & Document;
 
 @Schema({ timestamps: true })
 export class User extends Document {
-  @Prop({ type: UserDto })
-  user: {
-    username: string;
-    password: string;
-    email: string;
-    image: string;
-    bio: string;
-    token: string;
-  };
-
-  // @Prop()
-  // username: string;
-
-  // @Prop({ select: false })
-  // password: string;
-
-  // @Prop()
-  // email: string;
+  @Prop()
+  user: UserDto;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
