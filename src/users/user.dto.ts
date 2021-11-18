@@ -1,7 +1,7 @@
 import { Type } from 'class-transformer';
 import { IsEmail, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
 
-export class User {
+export class Register {
   @IsEmail()
   @IsNotEmpty()
   email: string;
@@ -13,14 +13,26 @@ export class User {
   @IsString()
   @IsNotEmpty()
   username: string;
-
-  image?: string;
-  bio?: string;
-  token?: string;
 }
 
-export class UserDto {
+export class RegisterDto {
   @ValidateNested()
-  @Type(() => User)
-  user: User;
+  @Type(() => Register)
+  user: Register;
+}
+
+class Login {
+  @IsEmail()
+  @IsNotEmpty()
+  email: string;
+
+  @IsString()
+  @IsNotEmpty()
+  password: string;
+}
+
+export class LoginDto {
+  @ValidateNested()
+  @Type(() => Login)
+  user: Login;
 }
