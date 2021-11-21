@@ -13,6 +13,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: any) {
+    console.log(`JWT验证 - Step 4: 被守卫调用`, payload);
+    debugger;
     return { userId: payload.sub, username: payload.username };
   }
 }
